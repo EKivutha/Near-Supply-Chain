@@ -1,8 +1,16 @@
 import { Int } from "cardano-wallet-js";
-import { NearBindgen, near, call, view, initialize, UnorderedMap, Vector } from 'near-sdk-js'
+import {
+  NearBindgen,
+  near,
+  call,
+  view,
+  initialize,
+  UnorderedMap,
+  Vector,
+} from "near-sdk-js";
 import { AccountId } from "near-sdk-js/lib/types";
 
-export const STORAGE_COST: bigint = BigInt("1000000000000000000000")
+export const STORAGE_COST: bigint = BigInt("1000000000000000000000");
 
 export class Donation {
   account_id: string;
@@ -14,7 +22,7 @@ export class Produce {
   farmer_id: string;
   name: String;
   quantity_kg: bigint;
-  buyer_id: string
+  buyer_id: string;
 }
 export class AllowList {
   produce_id: string;
