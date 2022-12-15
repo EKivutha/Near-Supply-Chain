@@ -13,7 +13,7 @@ function Header({ valueFromBlockchain, wallet }) {
         {/* <!-- Background image --> */}
         <div class="relative overflow-hidden bg-no-repeat bg-cover bg-center h-80 bg-hero">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-75">
-            <div class="flex justify-center items-center h-full">
+            <div class="flex justify-center items-center h-full mb-4 py-2">
               <div class="text-center text-white px-6 md:px-12 mb-4 pb-6">
                 <SignInPrompt
                   greeting={valueFromBlockchain}
