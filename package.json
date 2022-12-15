@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
-    "cleanup":"rm -rf ./frontend/.parcel-cache ./frontend/dist",
+    "cleanup": "rm -rf ./frontend/.parcel-cache ./frontend/dist",
     "start": " npm run cleanup && cd frontend && npm run start",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "deploy": "cd contract && npm run deploy",
     "build": "npm run build:contract && npm run build:web",
     "build:web": "cd frontend && npm run build",
@@ -15,9 +18,12 @@
     "postinstall": "cd frontend && npm install && cd .. && cd integration-tests && npm install && cd .. && cd contract && npm install"
   },
   "devDependencies": {
-    "near-cli": "^3.3.0"
+    "near-cli": "^3.3.0",
+    "prettier": "2.8.1"
   },
   "dependencies": {
-    "react-transition-group": "^4.4.5"
+    "eslint": "^8.29.0",
+    "react-transition-group": "^4.4.5",
+    "typescript": "^4.9.4"
   }
 }
