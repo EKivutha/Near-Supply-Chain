@@ -35,6 +35,8 @@ jobs:
           else
           npm i
           fi
+    - name: Grant access
+      run: sudo chown -R 1001:123 "/root/.npm"
 
     - name: Build the site
       run: sudo npm run build --if-present
