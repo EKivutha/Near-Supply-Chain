@@ -1,4 +1,4 @@
-# near-blank-project
+# Dprod Supply Chain
 
 This app was initialized with [create-near-app]
 
@@ -7,16 +7,18 @@ This app was initialized with [create-near-app]
 If you haven't installed dependencies during setup:
 
     npm install
+    yarn
 
 Build and deploy your contract to TestNet with a temporary dev account:
 
     npm run deploy
+    yarn deploy
 
 Test your contract:
 
     npm test
 
-If you have a frontend, run `npm start`. This will run a dev server.
+for the frontend app , run `npm start`. This will run a dev server.
 
 # Exploring The Code
 
@@ -80,6 +82,10 @@ On Windows, if you're seeing an error containing `EPERM` it may be related to sp
 [near-cli]: https://github.com/near/near-cli
 [gh-pages]: https://github.com/tschaub/gh-pages
 
-## contract example
+# Live Link
+
+
+
+# video sample
 
 https://pastebin.com/buVBH1KQ
