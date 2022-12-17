@@ -1,23 +1,40 @@
 {
   "name": "Near_Supply_Chain",
   "version": "1.0.0",
+  "homepage": "https://ekivutha.github.io/Near-Supply-Chain/",
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
-    "cleanup":"rm -rf ./frontend/.parcel-cache ./frontend/dist",
+    "cleanup": "rm -rf ./frontend/.parcel-cache ./frontend/dist",
     "start": " npm run cleanup && cd frontend && npm run start",
+    "dev": "cd frontend && npm run dev",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "deploy": "cd contract && npm run deploy",
     "build": "npm run build:contract && npm run build:web",
     "build:web": "cd frontend && npm run build",
     "build:contract": "cd contract && npm run build",
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "cd contract && npm test",
+    "predeploy:gh": "npm run build",
+    "deploy:gh": "gh-pages -d build",
     "test:integration": "cd integration-tests && npm test -- -- \"./contract/build/hello_near.wasm\"",
     "postinstall": "cd frontend && npm install && cd .. && cd integration-tests && npm install && cd .. && cd contract && npm install"
   },
   "devDependencies": {
-    "near-cli": "^3.3.0"
+    "@babel/core": "^7.20.5",
+    "@babel/eslint-parser": "^7.19.1",
+    "near-cli": "^3.3.0",
+    "prettier": "2.8.1"
   },
   "dependencies": {
-    "react-transition-group": "^4.4.5"
+    "@vitejs/plugin-react": "^3.0.0",
+    "eslint": "^8.29.0",
+    "gh-pages": "^4.0.0",
+    "parcel": "^2.8.2",
+    "react-router-dom": "^6.5.0",
+    "react-transition-group": "^4.4.5",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.1"
   }
 }
