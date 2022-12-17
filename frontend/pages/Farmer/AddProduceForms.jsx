@@ -1,29 +1,24 @@
 import React from "react";
+import { Wallet } from "../../near-wallet";
 
 function AddProduceForms() {
-  // function changeGreeting(e) {
-  //     e.preventDefault();
-  //     setUiPleaseWait(true);
-  //     const { greetingInput } = e.target.elements;
+  const wallet = new Wallet({ createAccessKeyFor: process.env.CONTRACT_NAME });
+  function addProduce(e) {
+    e.preventDefault();
+    const { produceInput } = e.target.elements;
 
-  //     // use the wallet to send the greeting to the contract
-  //     wallet
-  //       .callMethod({
-  //         method: "set_greeting",
-  //         args: { message: greetingInput.value },
-  //         contractId,
-  //       })
-  //       .then(async () => {
-  //         return getGreeting();
-  //       })
-  //       .then(setValueFromBlockchain)
-  //       .finally(() => {
-  //         setUiPleaseWait(false);
-  //       });
-  //   }
-  function addProduce(params) {
-    return;
+    // use the wallet to send the greeting to the contract
+    wallet.callMethod({
+      method: "set_produce",
+      args: {
+        name: produceInput.name,
+        produce_type: produceInput.produce_type,
+        quantity_kg: produceInput.quantity_kg,
+      },
+      contractId: process.env.CONTRACT_NAME,
+    });
   }
+
   return (
     <section>
       <div class="w-full max-w-xs">
@@ -34,13 +29,13 @@ function AddProduceForms() {
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              for="username"
+              for="name"
             >
               Crop
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
+              id="name"
               type="text"
               placeholder="Maize"
             />
@@ -48,13 +43,13 @@ function AddProduceForms() {
           <div class="mb-6">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              for="produce_type"
             >
               Crop Variety
             </label>
             <input
               class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
+              id="produce_type"
               type="text"
               placeholder="Pannar 691 Maize Variety"
             />
@@ -62,13 +57,13 @@ function AddProduceForms() {
           <div class="mb-6">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              for="quantity_kg"
             >
               Price/KG
             </label>
             <input
               class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
+              id="quantity_kg"
               type="text"
               placeholder="KSH60"
             />

@@ -1,31 +1,27 @@
 import React from "react";
+import { Wallet } from "../../near-wallet";
+import { Contract } from "../../helpers/helper";
 
 function AllowListForm() {
-  function changeGreeting(e) {
+  const wallet = new Wallet({ createAccessKeyFor: process.env.CONTRACT_NAME });
+  function joinAllowList(e) {
     e.preventDefault();
     setUiPleaseWait(true);
-    const { greetingInput } = e.target.elements;
+    const { allowListInput } = e.target.elements;
 
     // use the wallet to send the greeting to the contract
     wallet
       .callMethod({
-        method: "set_greeting",
-        args: { message: greetingInput.value },
-        contractId,
+        method: "join_produce_allow_list",
+        args: { message: allowListInput.value },
+        contractId: process.env.CONTRACT_NAME,
       })
-      .then(async () => {
-        return getGreeting();
-      })
-      .then(setValueFromBlockchain)
-      .finally(() => {
-        setUiPleaseWait(false);
-      });
   }
   return (
     <section>
       <div class="w-full max-w-xs">
         <form
-          onSubmit={changeGreeting}
+          onSubmit={joinAllowList}
           class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div class="mb-4">
