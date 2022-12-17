@@ -1,6 +1,7 @@
 {
   "name": "Near_Supply_Chain",
   "version": "1.0.0",
+  "homepage": "https://ekivutha.github.io/Near-Supply-Chain/",
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
     "cleanup": "rm -rf ./frontend/.parcel-cache ./frontend/dist",
@@ -15,6 +16,8 @@
     "build:contract": "cd contract && npm run build",
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "cd contract && npm test",
+    "predeploy:gh": "npm run build",
+    "deploy:gh": "gh-pages -d build",
     "test:integration": "cd integration-tests && npm test -- -- \"./contract/build/hello_near.wasm\"",
     "postinstall": "cd frontend && npm install && cd .. && cd integration-tests && npm install && cd .. && cd contract && npm install"
   },
@@ -27,6 +30,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^3.0.0",
     "eslint": "^8.29.0",
+    "gh-pages": "^4.0.0",
     "parcel": "^2.8.2",
     "react-transition-group": "^4.4.5",
     "typescript": "^4.9.4",
