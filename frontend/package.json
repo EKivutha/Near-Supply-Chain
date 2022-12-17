@@ -47,6 +47,7 @@
     "near-api-js": "^0.44.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-router-dom": "^6.5.0",
     "regenerator-runtime": "^0.13.9",
     "vite": "^4.0.1"
   },
